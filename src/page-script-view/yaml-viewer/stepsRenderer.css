@@ -95,4 +95,31 @@
     --nested-border-color: #3c3c3c;
     --nested-hover-background-color: #333333;
     --parent-caption-color: #9cdcfe;
+    --button-icon-color: #569cd6; /* Adjusted for dark mode */
+    --button-icon-hover-color: #9cdcfe; /* Adjusted for dark mode */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header h2 {
+    margin-right: 10px; /* Adjust margin to place button closer to text */
+}
+
+.share-button {
+    background-color: transparent;
+    color: var(--button-icon-color, #007acc);
+    border: none;
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size to match text height */
+    padding: 0;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center; /* Align icon vertically with text */
+}
+
+.share-button:hover {
+    color: var(--button-icon-hover-color, #005fa3);
 }
