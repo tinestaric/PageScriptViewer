@@ -1,0 +1,28 @@
+@import "node_modules/azure-devops-ui/Core/_platformCommon.scss";
+
+#root {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.no-content {
+    font-size: 18px;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center; /* Ensure text is centered */
+}

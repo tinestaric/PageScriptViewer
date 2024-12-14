@@ -1,0 +1,71 @@
+{
+  "manifestVersion": 1,
+  "version": "1.0.7",
+  "name": "Page Script Viewer",
+  "description": "Make viewing and managing Page Script YAML files easier in Azure DevOps",
+  "publisher": "TStaric",
+  "demands": [
+    "api-version/3.0"
+  ],
+  "categories": [
+    "Azure Repos"
+  ],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    }
+  },
+  "icons": {
+    "default": "img/logo.png"
+  },
+  "files": [
+    {
+      "path": "dist",
+      "addressable": true
+    },
+    {
+      "path": "img",
+      "addressable": true
+    }
+  ],
+  "contributions": [
+    {
+      "id": "page-script-viewer",
+      "type": "ms.vss-code-web.content-renderer",
+      "description": "Shows a custom renderer for source files",
+      "targets": [
+        "ms.vss-code-web.content-renderer-collection"
+      ],
+      "properties": {
+        "uri": "dist/page-script-view/page-script-view.html",
+        "text": "Page Script Viewer",
+        "fileExtensions": [
+          "yml",
+          "yaml"
+        ],
+        "title": "ms.vss-code-web.content-renderer-collection"
+      }
+    },
+    {
+      "id": "demo-tester",
+      "type": "ms.vss-code-web.content-renderer",
+      "description": "Shows a custom renderer for source files",
+      "targets": [
+        "ms.vss-code-web.content-renderer-collection"
+      ],
+      "properties": {
+        "uri": "dist/hub/hub.html",
+        "text": "Demo Tester",
+        "fileExtensions": [
+          "json"
+        ],
+        "title": "ms.vss-code-web.content-renderer-collection"
+      }
+    }
+  ]
+}

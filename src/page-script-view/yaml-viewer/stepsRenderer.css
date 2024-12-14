@@ -1,0 +1,98 @@
+.steps-container {
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.steps-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.step-item {
+    background-color: var(--background-color, #f9f9f9);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.step-item:hover {
+    background-color: var(--hover-background-color, #f1f1f1);
+}
+
+.step-item:hover .parent-caption {
+    display: inline;
+    color: var(--caption-color, #007acc); /* Match the main caption color */
+}
+
+.step-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.step-description {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-color, #000);
+}
+
+.caption {
+    font-style: italic;
+    color: var(--caption-color, #007acc);
+}
+
+.value {
+    font-weight: bold;
+    color: var(--value-color, #d9534f);
+}
+
+.step-separator {
+    border: none;
+    border-top: 1px solid var(--separator-color, #ddd);
+    margin: 10px 0;
+}
+
+.nested-steps-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.nested-step-item {
+    background-color: var(--nested-background-color, #e9e9e9);
+    border: 1px solid var(--nested-border-color, #ccc);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.nested-step-item:hover {
+    background-color: var(--nested-hover-background-color, #e1e1e1);
+}
+
+.parent-caption {
+    display: none;
+    margin-left: 80px;
+    font-style: italic;
+    color: var(--parent-caption-color, #85b4ff);
+}
+
+/* Dark mode variables */
+:root {
+    --background-color: #1e1e1e;
+    --border-color: #3c3c3c;
+    --hover-background-color: #2a2a2a;
+    --text-color: #d4d4d4;
+    --caption-color: #569cd6;
+    --value-color: #d16969;
+    --separator-color: #3c3c3c;
+    --nested-background-color: #2a2a2a;
+    --nested-border-color: #3c3c3c;
+    --nested-hover-background-color: #333333;
+    --parent-caption-color: #9cdcfe;
+}
