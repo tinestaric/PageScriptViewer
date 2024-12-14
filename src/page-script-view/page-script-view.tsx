@@ -1,7 +1,7 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client"; // Correct import for createRoot method
 import { Page } from "azure-devops-ui/Page";
-import { Header } from "azure-devops-ui/Header";
+import { Orientation } from "azure-devops-ui/Components/Page/Page.Props"; // Import Orientation
 import { parseYaml } from "./yaml-viewer/yamlParser";
 import { Recording } from "./yaml-viewer/types";
 import StepsRenderer from "./yaml-viewer/stepsRenderer";
@@ -25,10 +25,8 @@ class PageScriptView extends React.Component<{}, IPageScriptViewState> {
   }
 
   private showRenderer = () => {
-    console.log("showRenderer called");
     return {
       renderContent: (rawContent: string, options: any) => {
-        console.log("renderContent called with rawContent and options:", rawContent, options);
         try {
           const parsedYaml = parseYaml<Recording>(rawContent);
           if (parsedYaml.steps) {
@@ -44,22 +42,33 @@ class PageScriptView extends React.Component<{}, IPageScriptViewState> {
     };
   };
 
-  public render(): JSX.Element {
-    return (
-      <Page className="flex-grow">
+  public render(): React.JSX.Element {
+    const { parsedYaml} = this.state;
+    const pageContent = (
         <div className="content-container" style={{ textAlign: "center" }}>
-          {this.state.parsedYaml ? (
-            <StepsRenderer steps={this.state.parsedYaml.steps} />
+        {parsedYaml ? (
+          <StepsRenderer steps={parsedYaml.steps} />
           ) : (
             <div className="no-content">
               <h2>No valid Page Script content to display</h2>
             </div>
           )}
         </div>
+    );
+
+    return (
+      <Page 
+        className={`flex-grow`} 
+        orientation={Orientation.Vertical}
+        {...{ children: pageContent } as any}
+      >
       </Page>
     );
   }
-
 }
 
-ReactDOM.render(<PageScriptView />, document.getElementById("root"));
+const container = document.getElementById("root");
+if (container) {
+  const root = createRoot(container);
+  root.render(<PageScriptView />);
+}

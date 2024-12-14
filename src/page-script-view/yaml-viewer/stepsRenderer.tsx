@@ -45,7 +45,7 @@ const StepsRenderer: React.FC<StepsRendererProps> = ({ steps }) => {
         }
     };
 
-    const renderSteps = (steps: RecordingStep[], parentCaption?: string): JSX.Element[] => {
+    const renderSteps = (steps: RecordingStep[], parentCaption?: string): React.JSX.Element[] => {
         return steps.map((step, index) => (
             <React.Fragment key={index}>
                 <li className="step-item">
